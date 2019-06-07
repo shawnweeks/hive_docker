@@ -1,22 +1,3 @@
-<?xml version="1.0"?>
-<!--
-  Licensed to the Apache Software Foundation (ASF) under one or more
-  contributor license agreements.  See the NOTICE file distributed with
-  this work for additional information regarding copyright ownership.
-  The ASF licenses this file to You under the Apache License, Version 2.0
-  (the "License"); you may not use this file except in compliance with
-  the License.  You may obtain a copy of the License at
-
-      http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
--->
-<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
-
 <configuration>
   <property>
     <name>javax.jdo.option.ConnectionURL</name>
@@ -43,13 +24,58 @@
   </property>
 
   <property>
-    <name>hive.query.result.fileformat</name>
-    <value>SequenceFile</value>
-    <description>Fixes issue with values include new lines in queries.</description>
+    <name>hive.txn.manager</name>
+    <value>org.apache.hadoop.hive.ql.lockmgr.DbTxnManager</value>
+    <description>Enable TEZ instead of MR.</description>
   </property>
 
   <property>
+    <name>hive.support.concurrency</name>
+    <value>true</value>
+    <description>Enable Locks and ACID</description>
+  </property>
+
+  <!-- <property>
+    <name>hive.enforce.bucketing</name>
+    <value>true</value>
+    <description>Enable TEZ instead of MR.</description>
+  </property> -->
+
+  <property>
     <name>hive.user.install.directory</name>
-    <value>${fs.defaultFS}/user/</value>
+    <value>file:///user/</value>
+    <description>Enable Locks and ACID</description>
+  </property>
+
+  <property>
+    <name>hive.metastore.warehouse.dir</name>
+    <value>file:///user/hive/data/</value>
+  </property>
+
+  <property>
+    <name>hive.server2.thrift.min.worker.threads</name>
+    <value>1</value>
+    <description>Set Minimum Number of Worker Threads</description>
+  </property>
+
+  <property>
+    <name>hive.server2.thrift.max.worker.threads</name>
+    <value>5</value>
+    <description>Set Maximum Number of Worker Threads</description>
+  </property>
+
+  <property>
+    <name>mapreduce.framework.name</name>
+    <value>local</value>
+  </property>
+
+  <property>
+    <name>tez.lib.uris</name>
+    <value>/usr/hdp/current/tez-client/lib/tez.tar.gz</value>
+  </property>
+
+  <property>
+    <name>mapreduce.application.framework.path</name>
+    <value>/usr/hdp/current/hadoop-client/mapreduce.tar.gz</value>
   </property>
 </configuration>

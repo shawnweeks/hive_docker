@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 
 # Add Hortonworks repos
-ADD http://public-repo-1.hortonworks.com/HDP/ubuntu16/2.x/updates/2.6.5.0/hdp.list /etc/apt/sources.list.d/hdp.list
+ADD  	http://public-repo-1.hortonworks.com/HDP/ubuntu16/3.x/updates/3.1.0.0/hdp.list /etc/apt/sources.list.d/hdp.list
 RUN apt-key adv --recv-keys --keyserver keyserver.ubuntu.com B9733A7A07513CAD
 
 # Update Ubuntu and install software

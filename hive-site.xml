@@ -35,21 +35,16 @@
     <description>Enable Locks and ACID</description>
   </property>
 
-  <!-- <property>
-    <name>hive.enforce.bucketing</name>
-    <value>true</value>
-    <description>Enable TEZ instead of MR.</description>
-  </property> -->
-
   <property>
     <name>hive.user.install.directory</name>
-    <value>file:///user/</value>
-    <description>Enable Locks and ACID</description>
+    <value>/user/hive/</value>
+    <description>Set Hive User Directory</description>
   </property>
 
   <property>
     <name>hive.metastore.warehouse.dir</name>
-    <value>file:///user/hive/data/</value>
+    <value>/user/hive/data/</value>
+    <description>Set Hive Data Directory</description>
   </property>
 
   <property>

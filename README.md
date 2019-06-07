@@ -5,8 +5,8 @@ To Build
 $ docker build -t hdp_hive:3.1.0 .
 $ docker run \
     -d --rm -p 10000:10000 \
-    -v ~/Projects/hive_docker/var_lib_hive:/var/lib/hive \
-    -v ~/Projects/hive_docker/user_hive:/user/hive \
+    -v var_lib_hive:/var/lib/hive \
+    -v ~/Projects/hive_docker/user_hive_data:/user/hive/data \
     hdp_hive:3.1.0
 ```
 

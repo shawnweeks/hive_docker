@@ -12,7 +12,7 @@ RUN     apt-get update &&\
         openjdk-8-jdk \
         hive
 
-COPY hive-site.xml hive-log4j.properties /etc/hive/conf/
+COPY hive-site.xml /etc/hive/conf/
 COPY tez-site.xml /etc/tez/conf/
 COPY start.sh /var/lib/hive/
 
@@ -30,7 +30,7 @@ WORKDIR /var/lib/hive
 
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 RUN /usr/hdp/current/hive-server2/bin/schematool -dbType derby -initSchema 2> /dev/null
-VOLUME ["/var/lib/hive", "/user/hive"]
+VOLUME ["/var/lib/hive", "/user/hive/data"]
 
 EXPOSE 10000/tcp
 CMD ["./start.sh"]

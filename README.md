@@ -21,7 +21,7 @@ Some Commands
 dfs -ls /user/hive/data;
 -- Demo
 -- Step 1 - Create Table
-create table test(id int, c1 string, c2 string) stored as orc;
+create table test(id int, c1 string, c2 string) stored as orc tblproperties('transactional'='true');
 -- Step 2 - Populate With 100,000 Records
 insert overwrite table test
 select y.pos + 1, x.*

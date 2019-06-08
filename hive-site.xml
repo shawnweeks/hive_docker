@@ -59,6 +59,12 @@
     <description>Set Maximum Number of Worker Threads</description>
   </property>
 
+<property>
+    <name>tez.grouping.split-count</name>
+    <value>1</value>
+    <description>In local mode you can only run one thread at a time anyway.</description>
+  </property>
+
   <property>
     <name>mapreduce.framework.name</name>
     <value>local</value>

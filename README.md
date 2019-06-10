@@ -1,4 +1,4 @@
-This is the Hortonworks HDP 2.6.5 Release of Hive 1.2.1 in a Docker container. No security is enabled and external data can be accessed via mounts.
+This is the Hortonworks HDP 3.1.0 Release of Hive 3.1 in a Docker container. No security is enabled and external data can be accessed via mounts.
 
 To Build
 ```sh

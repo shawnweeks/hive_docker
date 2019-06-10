@@ -1,5 +1,3 @@
-<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
-
 <configuration>
     <property>
         <name>tez.local.mode</name>

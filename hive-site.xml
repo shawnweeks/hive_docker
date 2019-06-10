@@ -1,55 +1,110 @@
-<?xml version="1.0"?>
-<!--
-  Licensed to the Apache Software Foundation (ASF) under one or more
-  contributor license agreements.  See the NOTICE file distributed with
-  this work for additional information regarding copyright ownership.
-  The ASF licenses this file to You under the Apache License, Version 2.0
-  (the "License"); you may not use this file except in compliance with
-  the License.  You may obtain a copy of the License at
-
-      http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
--->
-<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
-
 <configuration>
-  <property>
-    <name>javax.jdo.option.ConnectionURL</name>
-    <value>jdbc:derby:;databaseName=/var/lib/hive/metastore/metastore_db;create=true</value>
-    <description>JDBC connect string for a JDBC metastore</description>
-  </property>
+    <property>
+        <name>javax.jdo.option.ConnectionURL</name>
+        <value>jdbc:derby:;databaseName=/var/lib/hive/metastore/metastore_db;create=true</value>
+        <description>JDBC connect string for a JDBC metastore</description>
+    </property>
 
-  <property>
-    <name>javax.jdo.option.ConnectionDriverName</name>
-    <value>org.apache.derby.jdbc.EmbeddedDriver</value>
-    <description>Driver class name for a JDBC metastore</description>
-  </property>
+    <property>
+        <name>javax.jdo.option.ConnectionDriverName</name>
+        <value>org.apache.derby.jdbc.EmbeddedDriver</value>
+        <description>Driver class name for a JDBC metastore</description>
+    </property>
 
-  <property>
-    <name>hive.server2.transport.mode</name>
-    <value>BINARY</value>
-    <description>Sets transport mode to binary.</description>
-  </property>
+    <property>
+        <name>hive.metastore.uris</name>
+        <value>thrift://localhost:9083</value>
+    </property>
 
-  <property>
-    <name>hive.execution.engine</name>
-    <value>tez</value>
-    <description>Enable TEZ instead of MR.</description>
-  </property>
+    <property>
+        <name>hive.metastore.event.db.notification.api.auth</name>
+        <value>false</value>
+    </property>
 
-  <property>
-    <name>hive.query.result.fileformat</name>
-    <value>SequenceFile</value>
-    <description>Fixes issue with values include new lines in queries.</description>
-  </property>
+    <property>
+        <name>hive.server2.transport.mode</name>
+        <value>BINARY</value>
+        <description>Sets transport mode to binary.</description>
+    </property>
 
-  <property>
-    <name>hive.user.install.directory</name>
-    <value>${fs.defaultFS}/user/</value>
-  </property>
+    <property>
+        <name>hive.execution.engine</name>
+        <value>tez</value>
+        <description>Enable TEZ instead of MR.</description>
+    </property>
+
+    <property>
+        <name>hive.txn.manager</name>
+        <value>org.apache.hadoop.hive.ql.lockmgr.DbTxnManager</value>
+        <description>Enable TEZ instead of MR.</description>
+    </property>
+
+    <property>
+        <name>hive.support.concurrency</name>
+        <value>true</value>
+        <description>Enable Locks and ACID</description>
+    </property>
+
+    <property>
+        <name>hive.exec.dynamic.partition.mode</name>
+        <value>nonstrict</value>
+        <description>Enable Dynamic Partitions</description>
+    </property>
+
+    <property>
+        <name>hive.tez.container.size</name>
+        <value>3276</value>
+        <description>Set Hive Container Size to 80% of Hive Heap Size</description>
+    </property>
+
+    <property>
+        <name>hive.user.install.directory</name>
+        <value>/user/hive/</value>
+        <description>Set Hive User Directory</description>
+    </property>
+
+    <property>
+        <name>hive.metastore.warehouse.dir</name>
+        <value>/user/hive/data/</value>
+        <description>Set Hive Data Directory</description>
+    </property>
+
+    <property>
+        <name>hive.compactor.worker.threads</name>
+        <value>1</value>
+        <description>Enable Compactions</description>
+    </property>
+
+    <property>
+        <name>hive.compactor.initiator.on</name>
+        <value>true</value>
+        <description>Enable Compactions</description>
+    </property>
+
+    <property>
+        <name>hive.server2.thrift.max.worker.threads</name>
+        <value>5</value>
+        <description>Set Maximum Number of Worker Threads</description>
+    </property>
+
+    <property>
+        <name>tez.grouping.split-count</name>
+        <value>1</value>
+        <description>In local mode you can only run one thread at a time anyway.</description>
+    </property>
+
+    <property>
+        <name>mapreduce.framework.name</name>
+        <value>local</value>
+    </property>
+
+    <property>
+        <name>tez.lib.uris</name>
+        <value>/usr/hdp/current/tez-client/lib/tez.tar.gz</value>
+    </property>
+
+    <property>
+        <name>mapreduce.application.framework.path</name>
+        <value>/usr/hdp/current/hadoop-client/mapreduce.tar.gz</value>
+    </property>
 </configuration>

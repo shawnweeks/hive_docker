@@ -23,7 +23,7 @@ dfs -ls /user/hive/data;
 -- Step 1 - Create Table
 create table test(id int, c1 string, c2 string) stored as orc tblproperties('transactional'='true');
 -- Step 2 - Populate With 100,000 Records
-insert overwrite table test
+insert into test
 select y.pos + 1, x.*
     from (select 'Hello' c1, 'World' c2) x	
     lateral view posexplode(split(space(999999),' ')) y;

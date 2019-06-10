@@ -46,9 +46,15 @@
     </property>
 
     <property>
-        <name>tez.grouping.split-count</name>
-        <value>1</value>
-        <description>In local mode you can only run one thread at a time anyway.</description>
+        <name>hive.exec.dynamic.partition.mode</name>
+        <value>nonstrict</value>
+        <description>Enable Dynamic Partitions</description>
+    </property>
+
+    <property>
+        <name>hive.tez.container.size</name>
+        <value>3276</value>
+        <description>Set Hive Container Size to 80% of Hive Heap Size</description>
     </property>
 
     <property>

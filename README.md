@@ -4,7 +4,7 @@ To Build
 ```sh
 $ docker build -t hdp_hive:3.1.0 .
 $ docker run \
-    -d --rm -p 10000:10000 \
+    -d -p 10000:10000 \
     -v var_lib_hive:/var/lib/hive \
     -v ~/Projects/hive_docker/user_hive_data:/user/hive/data \
     hdp_hive:3.1.0
@@ -23,7 +23,7 @@ dfs -ls /user/hive/data;
 -- Step 1 - Create Table
 create table test(id int, c1 string, c2 string) stored as orc tblproperties('transactional'='true');
 -- Step 2 - Populate With 100,000 Records
-insert overwrite table test
+insert into test
 select y.pos + 1, x.*
     from (select 'Hello' c1, 'World' c2) x	
     lateral view posexplode(split(space(999999),' ')) y;
